@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="../../javascript/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/main.css">
+  <title>Motor State Coding</title>
+</head>
+
+<body>
+  <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+    <a id="bar-title" class="navbar-brand" href="../../index.html">Neuroscience Activities</a>
+    <div class="navbar-nav-scroll">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link"
+                          href="https://github.com/mfliu/neuroActivitiesWebsite">Source</a></li>
+        <li class="nav-item"><a class="nav-link" 
+            href="mailto:monicaliu@pitt.edu">Feedback</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="container-fluid">
+    <main class="bd-content" role="main">
+    <h1 class="bd-title">Motor State Coding</h1>
+    <div class="instructions">
+      <h2>Background</h2>
+      <p>
+        One of the challenges in understanding cortical control of movement is to understand the basis
+        that it uses for computing and updating motor commands. This example is designed to illustrate 
+        how the movement characteristics of an effector change depending on the state variables controlling
+        it. Here, the coordinate basis for the movement of the cursor on the screen can be toggled between 
+        cartesian and polar coordinates. You are a proxy for the nervous controller. 
+      </p>
+      <p>
+        <i><b>See also</b>: <a href="../vmr/vmr.html">Visuomotor Rotation Task (VMR)</a></i>
+      </p>
+      <h2>Instructions</h2>
+      <p>
+        The cursor (yellow) begins in the starting position (gray circle). When the cursor
+        turns blue, move it to the target (green circle). There will be 5 baseline trials followed by 
+        10 perturbed trials followed by 5 washout trials.
+        <ul>
+          <li>Click the button with <b>Cartesian</b> or <b>Polar</b> to toggle the game mode.</li>
+          <li>Click <b>Start</b> to begin the game.</li>
+          <li>Navigate the cursor into the highlighted target by using the wasd keys.</li>
+          <li>Try changing the state basis and see how that influences ability to control the cursor.</li>
+        </ul>
+      </p>
+      <h2>Questions</h2>
+      <ul>
+        <li>How does the same VMR impact movements depending on the mode of the controller?</li>
+        <li>Are there different strategies that are better equipped at handling the perturbation?</li>
+        <li>Are there ways to remove strategies that prevent you from testing a hypothesis?</li>
+      </ul>
+    </div>
+    <div class="centered">
+      <button type="button" class="btn btn-primary" id="modeButton" onclick="toggleMode()">Cartesian</button>
+      <button type="button" class="btn btn-dark" onclick="startSession()">Start</button>
+      <button type="button" class="btn btn-dark" onclick="endSession()">End</button>
+      <button type="button" class="btn btn-dark" onclick="resetData()">Reset</button>
+      <button type="button" class="btn btn-dark" id="saveButton" style="visibility:hidden" onclick="saveData()">Save CSV Data</button>
+    </div>
+    <div class="jumbotron">
+      <div class="d-flex flex-row">
+        <div class="p-2">
+          <canvas id="taskCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="p-2">
+          <div id="figure" style="width:500px;height:500px;"></div>
+        </div>
+      </div>
+    </div>
+    </main>
+  </div>
+  <script src="stateCoding.js"></script>
+</body>
+</html>
