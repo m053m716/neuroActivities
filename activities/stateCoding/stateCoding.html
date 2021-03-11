@@ -32,23 +32,19 @@
       <p>
         One of the challenges in understanding cortical control of movement is to understand the basis
         that it uses for computing and updating motor commands. This example is designed to illustrate 
-        how the movement characteristics of an effector change depending on the state variables controlling
-        it. Here, the coordinate basis for the movement of the cursor on the screen can be toggled between 
-        cartesian and polar coordinates. You are a proxy for the nervous controller. 
+        the center-out cursor task in which a cursor moves to one of the eight radial targets.
       </p>
       <p>
         <i><b>See also</b>: <a href="../vmr/vmr.html">Visuomotor Rotation Task (VMR)</a></i>
       </p>
       <h2>Instructions</h2>
       <p>
-        The cursor (yellow) begins in the starting position (gray circle). When the cursor
-        turns blue, move it to the target (green circle). There will be 5 baseline trials followed by 
-        10 perturbed trials followed by 5 washout trials.
+        Move the circle to the starting position (orange). Hover the cursor slightly until the start circle no longer lights up.
+        Now, move it to the target (green). There will be 5 baseline trials followed by 5 perturbed trials followed by 5 washout trials.
         <ul>
-          <li>Click the button with <b>Cartesian</b> or <b>Polar</b> to toggle the game mode.</li>
+          <li>Click the button with <b>Jitter</b> or <b>Homing</b> to toggle the game mode.</li>
           <li>Click <b>Start</b> to begin the game.</li>
-          <li>Navigate the cursor into the highlighted target by using the wasd keys.</li>
-          <li>Try changing the state basis and see how that influences ability to control the cursor.</li>
+          <li>The mouse moves the cursor.</li>
         </ul>
       </p>
       <h2>Questions</h2>
@@ -59,10 +55,10 @@
       </ul>
     </div>
     <div class="centered">
-      <button type="button" class="btn btn-primary" id="modeButton" onclick="toggleMode()">Cartesian</button>
-      <button type="button" class="btn btn-dark" onclick="startSession()">Start</button>
-      <button type="button" class="btn btn-dark" onclick="endSession()">End</button>
-      <button type="button" class="btn btn-dark" onclick="resetData()">Reset</button>
+      <button type="button" class="btn btn-secondary" id="modeButton" onclick="toggleMode()">Jitter</button>
+      <button type="button" class="btn btn-outline-success" id="startButton" onclick="startSession()">Start</button>
+      <button type="button" class="btn btn-danger" id="endButton" onclick="endSession()">End</button>
+      <button type="button" class="btn btn-warning" id="resetButton" onclick="resetData()">Reset</button>
       <button type="button" class="btn btn-dark" id="saveButton" style="visibility:hidden" onclick="saveData()">Save CSV Data</button>
     </div>
     <div class="jumbotron">
